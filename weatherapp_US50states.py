@@ -65,6 +65,7 @@ cities = [
     {"name": "Cheyenne, WY", "lat": 41.1399, "lon": -104.8202}
 ]
 
+@st.cache_data(ttl=600)
 def fetch_weather(city):
     url = f"https://api.openweathermap.org/data/2.5/weather?lat={city['lat']}&lon={city['lon']}&appid={API_KEY}&units=metric"
     response = requests.get(url)
